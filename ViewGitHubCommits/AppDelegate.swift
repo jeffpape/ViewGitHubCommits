@@ -36,11 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 debugPrint("jsonData is nil")
                 return
             }
+//            debugPrint(jsonData)
             guard let dictionaryData = jsonData as? [[String:Any]] else {
                 debugPrint("typecase of jsonData to [[String:Any]]")
                 return
             }
             debugPrint(dictionaryData)
+            let commits = dictionaryData.compactMap{GitCommitData(from: $0)}
+            debugPrint(commits)
         }
         
         RestCalls.read(from: sourceUrl, headers: headers, urlParameters: urlParameters, timeout: timeout, completion: completion)

@@ -17,6 +17,7 @@
 		0CDFE632236FB414008BD195 /* ViewGitHubCommitsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE631236FB414008BD195 /* ViewGitHubCommitsUITests.swift */; };
 		0CDFE640236FBAF3008BD195 /* RestCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE63F236FBAF3008BD195 /* RestCalls.swift */; };
 		0CDFE642236FE758008BD195 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE641236FE758008BD195 /* Secret.swift */; };
+		0CDFE6462370F616008BD195 /* GitCommitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE6452370F616008BD195 /* GitCommitData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0CDFE633236FB414008BD195 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CDFE63F236FBAF3008BD195 /* RestCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestCalls.swift; sourceTree = "<group>"; };
 		0CDFE641236FE758008BD195 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		0CDFE6452370F616008BD195 /* GitCommitData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitCommitData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				0CDFE61D236FB414008BD195 /* Info.plist */,
 				0CDFE617236FB414008BD195 /* Preview Content */,
 				0CDFE63F236FBAF3008BD195 /* RestCalls.swift */,
+				0CDFE6452370F616008BD195 /* GitCommitData.swift */,
 				0CDFE641236FE758008BD195 /* Secret.swift */,
 			);
 			path = ViewGitHubCommits;
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CDFE610236FB412008BD195 /* AppDelegate.swift in Sources */,
+				0CDFE6462370F616008BD195 /* GitCommitData.swift in Sources */,
 				0CDFE642236FE758008BD195 /* Secret.swift in Sources */,
 				0CDFE612236FB412008BD195 /* SceneDelegate.swift in Sources */,
 				0CDFE614236FB412008BD195 /* ContentView.swift in Sources */,
