@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let timeout = TimeInterval(1000)
         let completion = {
             (data: Data?, urlResponse: URLResponse?, error: Error?) -> Void in
-            debugPrint(urlResponse as Any)
+//            debugPrint(urlResponse as Any)
             guard let data = data else {
                 debugPrint("data is nil")
                 return
@@ -44,7 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 //            debugPrint(dictionaryData)
             let commits = dictionaryData.compactMap{GitCommitData(from: $0)}
-            debugPrint(commits)
+//            debugPrint(commits)
+            
+            // verify retrieved commit components
+            for commit in commits {
+                debugPrint("\(commit.author)   \(commit.hash)   \(commit.message)")
+            }
+            
+            
         }
         
         RestCalls.read(from: sourceUrl, headers: headers, urlParameters: urlParameters, timeout: timeout, completion: completion)
