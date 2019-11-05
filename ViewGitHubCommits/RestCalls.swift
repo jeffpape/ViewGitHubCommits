@@ -73,7 +73,7 @@ class RestCalls {
             request.setValue(header.value, forHTTPHeaderField: header.key)
         }
         request.timeoutInterval = timeout
-        debugPrint("\t\(httpMethod.rawValue)\n\t\(request.allHTTPHeaderFields ?? [:])")
+        debugPrint("\(httpMethod.rawValue) \(request.allHTTPHeaderFields ?? [:])")
         let dataTask = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             completion(data, response, error)

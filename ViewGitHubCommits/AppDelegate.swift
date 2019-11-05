@@ -16,17 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        let sourceUrl = "https://api.github.com/repos/octocat/Hello-World/commits"
-        let sourceUrl = "https://api.github.com/repos/octocat/octocat.github.io/commits"
-        // let sourceUrl = "https://api.github.com"
+//        let sourceUrl = "https://api.github.com/repos/octocat/octocat.github.io/commits"
+        let sourceUrl = "https://api.github.com/repos/tensorflow/tensorflow/commits"
         var headers = [String: String]()
         headers["Accept"] = "application/vnd.github.v3+json"
         // gitHubToken defined in secret file which should never be checked into to github
         headers["Authorization"] = "token \(gitHubToken)"
-        let urlParameters = [String: String]()
+        var urlParameters = [String: String]()
+        urlParameters["per_page"] = "25"
         let timeout = TimeInterval(1000)
         let completion = {
             (data: Data?, urlResponse: URLResponse?, error: Error?) -> Void in
-//            debugPrint(urlResponse as Any)
+            debugPrint(urlResponse as Any)
             guard let data = data else {
                 debugPrint("data is nil")
                 return
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 debugPrint("typecase of jsonData to [[String:Any]]")
                 return
             }
-            debugPrint(dictionaryData)
+//            debugPrint(dictionaryData)
             let commits = dictionaryData.compactMap{GitCommitData(from: $0)}
             debugPrint(commits)
         }
