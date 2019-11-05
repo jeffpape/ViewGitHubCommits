@@ -18,6 +18,8 @@
 		0CDFE640236FBAF3008BD195 /* RestCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE63F236FBAF3008BD195 /* RestCalls.swift */; };
 		0CDFE642236FE758008BD195 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE641236FE758008BD195 /* Secret.swift */; };
 		0CDFE6462370F616008BD195 /* GitCommitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE6452370F616008BD195 /* GitCommitData.swift */; };
+		0CDFE64823712702008BD195 /* GitCommitModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE64723712702008BD195 /* GitCommitModelController.swift */; };
+		0CDFE64A237138A5008BD195 /* GitCommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE649237138A5008BD195 /* GitCommitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0CDFE63F236FBAF3008BD195 /* RestCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestCalls.swift; sourceTree = "<group>"; };
 		0CDFE641236FE758008BD195 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		0CDFE6452370F616008BD195 /* GitCommitData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitCommitData.swift; sourceTree = "<group>"; };
+		0CDFE64723712702008BD195 /* GitCommitModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommitModelController.swift; sourceTree = "<group>"; };
+		0CDFE649237138A5008BD195 /* GitCommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				0CDFE63F236FBAF3008BD195 /* RestCalls.swift */,
 				0CDFE6452370F616008BD195 /* GitCommitData.swift */,
 				0CDFE641236FE758008BD195 /* Secret.swift */,
+				0CDFE64723712702008BD195 /* GitCommitModelController.swift */,
+				0CDFE649237138A5008BD195 /* GitCommitView.swift */,
 			);
 			path = ViewGitHubCommits;
 			sourceTree = "<group>";
@@ -278,9 +284,11 @@
 			files = (
 				0CDFE610236FB412008BD195 /* AppDelegate.swift in Sources */,
 				0CDFE6462370F616008BD195 /* GitCommitData.swift in Sources */,
+				0CDFE64823712702008BD195 /* GitCommitModelController.swift in Sources */,
 				0CDFE642236FE758008BD195 /* Secret.swift in Sources */,
 				0CDFE612236FB412008BD195 /* SceneDelegate.swift in Sources */,
 				0CDFE614236FB412008BD195 /* ContentView.swift in Sources */,
+				0CDFE64A237138A5008BD195 /* GitCommitView.swift in Sources */,
 				0CDFE640236FBAF3008BD195 /* RestCalls.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class GitCommitData {
+class GitCommitData: CustomStringConvertible {
+    var description: String {
+        return "\(author) \(hash) \(message)"
+    }
+    
     let author : String
     let hash : String
     let message : String
@@ -37,5 +41,7 @@ class GitCommitData {
         self.author = authorName
         self.hash = hash
         self.message = message
+        
+        
     }
 }
