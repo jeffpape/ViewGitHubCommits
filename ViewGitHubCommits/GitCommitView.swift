@@ -15,17 +15,17 @@ struct GitCommitView: View {
         VStack {
             Text("\(commit.author)")
                 .bold()
+            Spacer()
             Text("\(commit.hash)")
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.blue)
                 .font(Font.system(size: 14))
+            Spacer()
             Text("\(commit.message)")
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
                 .font(Font.system(size: 14))
-
-//            Spacer()
-         }
+            }
     }
 }
 

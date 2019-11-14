@@ -26,16 +26,22 @@ class GitCommitModelController {
     //            debugPrint(urlResponse as Any)
             guard let data = data else {
                 debugPrint("data is nil")
+                self.commits = []
+                completion(self.commits)
                 return
             }
     //            debugPrint(String(data: data, encoding: .utf8) as Any)
             guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 debugPrint("jsonData is nil")
+                self.commits = []
+                completion(self.commits)
                 return
             }
     //            debugPrint(jsonData)
             guard let dictionaryData = jsonData as? [[String:Any]] else {
                 debugPrint("typecase of jsonData to [[String:Any]]")
+                self.commits = []
+                completion(self.commits)
                 return
             }
     //            debugPrint(dictionaryData)

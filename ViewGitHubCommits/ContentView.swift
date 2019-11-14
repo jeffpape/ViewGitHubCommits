@@ -8,30 +8,73 @@
 
 import SwiftUI
 
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+struct Background<Content: View>: View {
+    private var content: Content
+
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        Color.white
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .overlay(content).onTapGesture {
+            self.endEditing()
+        }
+    }
+    
+    private func endEditing() {
+        UIApplication.shared.endEditing()
+    }
+}
+
+extension View {
+    func background() -> some View {
+        return Background{self}
+    }
+}
+
 struct ContentView: View {
 
 //    let sourceRepository = "octocat/Hello-World"
 //    let sourceRepository = "octocat/octocat.github.io"
-    let sourceRepository = "tensorflow/tensorflow"
+//    let sourceRepository = "tensorflow/tensorflow"
     @State var commits: [GitCommitData]? = nil
+    @State var sourceRepository: String = ""
     var body: some View {
         VStack {
             Text("View GitHub Commits")
                 .font(.largeTitle)
                 .bold()
-            Text(self.sourceRepository)
-                .font(.title)
-                .foregroundColor(.blue)
+            HStack {
+                Spacer(minLength: 20)
+                TextField("repository", text: self.$sourceRepository,
+                     onCommit: { GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
+                         self.commits = $0
+                     }})
+                    .font(.title)
+                    .foregroundColor(.blue)
+                Spacer()
+                Button("x", action: {
+                    self.sourceRepository = ""
+                    self.commits = []
+                })
+                Spacer(minLength: 20)
+            }
             List {
-                ForEach(commits ?? [], id: \.hash)
+                ForEach(self.commits ?? [], id: \.hash)
                 {
                     (commit: GitCommitData) in
                     GitCommitView(commit: commit)
                 }
-            }.onAppear(perform: {GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
-                self.commits = $0
-            }})
-        }
+            }
+        }.background()
     }
 }
 
