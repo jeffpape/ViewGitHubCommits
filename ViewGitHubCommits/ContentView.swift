@@ -54,17 +54,19 @@ struct ContentView: View {
                 .bold()
             HStack {
                 Spacer(minLength: 20)
-                TextField("repository", text: self.$sourceRepository,
-                     onCommit: { GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
-                         self.commits = $0
-                     }})
-                    .font(.title)
-                    .foregroundColor(.blue)
-                Spacer()
-                Button("x", action: {
-                    self.sourceRepository = ""
-                    self.commits = []
-                })
+                HStack {
+                    TextField("repository", text: self.$sourceRepository,
+                         onCommit: { GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
+                             self.commits = $0
+                         }})
+                        .font(.title)
+                        .foregroundColor(.blue)
+                    Spacer()
+                    Button("x", action: {
+                        self.sourceRepository = ""
+                        self.commits = []
+                    })
+                    }.padding([.leading, .trailing], 20).padding([.top, .bottom], 10).background(Color.gray.opacity(0.2)).cornerRadius(10)
                 Spacer(minLength: 20)
             }
             List {
