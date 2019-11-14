@@ -9,20 +9,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    //  let sourceUrl = "https://api.github.com/repos/octocat/Hello-World/commits"
-    //let sourceUrl = "https://api.github.com/repos/octocat/octocat.github.io/commits"
-    let sourceUrl = "https://api.github.com/repos/tensorflow/tensorflow/commits"
+
+//    let sourceRepository = "octocat/Hello-World"
+//    let sourceRepository = "octocat/octocat.github.io"
+    let sourceRepository = "tensorflow/tensorflow"
     @State var commits: [GitCommitData]? = nil
     var body: some View {
-        List {
-            ForEach(commits ?? [], id: \.hash)
-            {
-                (commit: GitCommitData) in
-                GitCommitView(commit: commit)
-            }
-        }.onAppear(perform: {GitCommitModelController.setUpGitHubRetrieve(sourceUrl: self.sourceUrl) {
-            self.commits = $0
-        }})
+        VStack {
+            Text("View GitHub Commits")
+                .font(.largeTitle)
+                .bold()
+            Text(self.sourceRepository)
+                .font(.title)
+                .foregroundColor(.blue)
+            List {
+                ForEach(commits ?? [], id: \.hash)
+                {
+                    (commit: GitCommitData) in
+                    GitCommitView(commit: commit)
+                }
+            }.onAppear(perform: {GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
+                self.commits = $0
+            }})
+        }
     }
 }
 

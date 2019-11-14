@@ -11,8 +11,9 @@ import Foundation
 class GitCommitModelController {
     static var commits : [GitCommitData]? = nil
     
-    static func setUpGitHubRetrieve(sourceUrl: String, completion: @escaping([GitCommitData]?) -> Void) {
+    static func setUpGitHubRetrieve(sourceRepository: String, completion: @escaping([GitCommitData]?) -> Void) {
 
+        let sourceUrl = "https://api.github.com/repos/\(sourceRepository)/commits"
         var headers = [String: String]()
         headers["Accept"] = "application/vnd.github.v3+json"
         // gitHubToken defined in secret file which should never be checked into to github

@@ -13,7 +13,7 @@ class GitCommitData: CustomStringConvertible {
         return "\(author) \(hash) \(message)"
     }
     
-    let author : String
+    var author : String
     let hash : String
     let message : String
     
@@ -41,7 +41,13 @@ class GitCommitData: CustomStringConvertible {
         self.author = authorName
         self.hash = hash
         self.message = message
-        
-        
+    }
+
+    init(author: String, hash: String, message: String) {
+        self.author = author
+        self.hash = hash
+        self.message = message
     }
 }
+
+
