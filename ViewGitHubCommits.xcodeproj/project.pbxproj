@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CBE306123838E5200E13A1E /* ResignFirstResponderTapGestureDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBE306023838E5200E13A1E /* ResignFirstResponderTapGestureDetector.swift */; };
 		0CDFE610236FB412008BD195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE60F236FB412008BD195 /* AppDelegate.swift */; };
 		0CDFE612236FB412008BD195 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE611236FB412008BD195 /* SceneDelegate.swift */; };
 		0CDFE614236FB412008BD195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDFE613236FB412008BD195 /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CBE306023838E5200E13A1E /* ResignFirstResponderTapGestureDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignFirstResponderTapGestureDetector.swift; sourceTree = "<group>"; };
 		0CDFE60C236FB412008BD195 /* ViewGitHubCommits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewGitHubCommits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CDFE60F236FB412008BD195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CDFE611236FB412008BD195 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				0CDFE641236FE758008BD195 /* Secret.swift */,
 				0CDFE64723712702008BD195 /* GitCommitModelController.swift */,
 				0CDFE649237138A5008BD195 /* GitCommitView.swift */,
+				0CBE306023838E5200E13A1E /* ResignFirstResponderTapGestureDetector.swift */,
 			);
 			path = ViewGitHubCommits;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				0CDFE64823712702008BD195 /* GitCommitModelController.swift in Sources */,
 				0CDFE642236FE758008BD195 /* Secret.swift in Sources */,
 				0CDFE612236FB412008BD195 /* SceneDelegate.swift in Sources */,
+				0CBE306123838E5200E13A1E /* ResignFirstResponderTapGestureDetector.swift in Sources */,
 				0CDFE614236FB412008BD195 /* ContentView.swift in Sources */,
 				0CDFE64A237138A5008BD195 /* GitCommitView.swift in Sources */,
 				0CDFE640236FBAF3008BD195 /* RestCalls.swift in Sources */,

@@ -14,32 +14,6 @@ extension UIApplication {
     }
 }
 
-struct Background<Content: View>: View {
-    private var content: Content
-
-    init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content()
-    }
-
-    var body: some View {
-        Color.white
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        .overlay(content).onTapGesture {
-            self.endEditing()
-        }
-    }
-    
-    private func endEditing() {
-        UIApplication.shared.endEditing()
-    }
-}
-
-extension View {
-    func background() -> some View {
-        return Background{self}
-    }
-}
-
 struct ContentView: View {
 
 //    let sourceRepository = "octocat/Hello-World"
@@ -55,7 +29,7 @@ struct ContentView: View {
             HStack {
                 Spacer(minLength: 20)
                 HStack {
-                    TextField("repository", text: self.$sourceRepository,
+                    TextField("user/repository", text: self.$sourceRepository,
                          onCommit: { GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
                              self.commits = $0
                          }})
