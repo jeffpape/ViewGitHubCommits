@@ -30,14 +30,14 @@ struct GitCommitView: View {
 }
 
 
-//struct GitCommitView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GitCommitView(commit:
-//            GitCommitData(
-//                author: "The Octocat",
-//                 hash: "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
-//                 message: "Merge pull request #6 from Spaceghost/patch-1\n\nNew line at end of file."
-//            )
-//        )
-//    }
-//}
+struct GitCommitView_Previews: PreviewProvider {
+    static var previews: some View {
+        GitCommitView(commit:
+            GitCommitData(
+                author: "The Octocat",
+                hash: "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+                message: "Merge pull request #6 from Spaceghost/patch-1\n\nNew line at end of file."
+            )
+        )
+    }
+}

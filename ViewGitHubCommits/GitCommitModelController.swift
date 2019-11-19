@@ -17,7 +17,7 @@ class GitCommitModelController {
         let sourceUrl = "https://api.github.com/repos/\(sourceRepository)/commits"
         var headers = [String: String]()
         headers["Accept"] = "application/vnd.github.v3+json"
-        // gitHubToken defined in secret file which should never be checked into to github
+        // gitHubToken defined in Secret.swift file which should never be checked into to github
         headers["Authorization"] = "token \(gitHubToken)"
         var urlParameters = [String: String]()
         urlParameters["per_page"] = "25"

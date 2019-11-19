@@ -48,6 +48,7 @@ struct ContentView: View {
             }
             if error != nil {
                 Text(error!)
+                    .font(Font.system(size: 14))
             }
             List {
                 ForEach(self.commits ?? [], id: \.hash)
