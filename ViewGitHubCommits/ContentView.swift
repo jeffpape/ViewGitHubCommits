@@ -16,9 +16,6 @@ extension UIApplication {
 
 struct ContentView: View {
 
-//    let sourceRepository = "octocat/Hello-World"
-//    let sourceRepository = "octocat/octocat.github.io"
-//    let sourceRepository = "tensorflow/tensorflow"
     @State var commits: [GitCommitData]? = nil
     @State var sourceRepository: String = ""
     @State var error: String? = nil
@@ -68,23 +65,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-//struct SearchView : View {
-//@State private var query: String = "Swift"
-//@EnvironmentObject var repoStore: ReposStore
-//
-//var body: some View {
-//    NavigationView {
-//        List {
-//            TextField("Type something...", text: $query, onCommit: fetch)
-//            ForEach(repoStore.repos) { repo in
-//                RepoRow(repo: repo)
-//            }
-//        }.navigationBarTitle(Text("Search"))
-//    }.onAppear(perform: fetch)
-//}
-//
-//private func fetch() {
-//    repoStore.fetch(matching: query)
-//}
