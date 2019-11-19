@@ -21,6 +21,8 @@ struct ContentView: View {
     @State var error: String? = nil
     var body: some View {
         VStack {
+            Spacer()
+                .frame(minHeight: 10, maxHeight: 20)
             Text("View GitHub Commits")
                 .font(.largeTitle)
                 .bold()
