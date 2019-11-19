@@ -24,7 +24,7 @@ class GitCommitModelController {
         let timeout = TimeInterval(1000)
         let restCompletion = {
             (data: Data?, urlResponse: URLResponse?, error: Error?) -> Void in
-                debugPrint(urlResponse as Any)
+            debugPrint(urlResponse as Any)
             guard let data = data else {
                 debugPrint("data is nil")
                 self.error = "unable to retrieve user/repository commits"
@@ -32,7 +32,7 @@ class GitCommitModelController {
                 completion(self.commits)
                 return
             }
-                debugPrint(String(data: data, encoding: .utf8) as Any)
+            debugPrint(String(data: data, encoding: .utf8) as Any)
             guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 debugPrint("jsonData is nil")
                 self.error = "unable to process retrieved user/repository commits"
@@ -40,7 +40,7 @@ class GitCommitModelController {
                 completion(self.commits)
                 return
             }
-                debugPrint(jsonData)
+            debugPrint(jsonData)
             guard let dictionaryData = jsonData as? [[String:Any]] else {
                 debugPrint("typecase of jsonData to [[String:Any]]")
                 self.error = "unable to process retrieved user/repository commits"
@@ -48,7 +48,7 @@ class GitCommitModelController {
                 completion(self.commits)
                 return
             }
-                debugPrint(dictionaryData)
+            debugPrint(dictionaryData)
             let commits = dictionaryData.compactMap{GitCommitData(from: $0)}
                 debugPrint(commits)
                         
