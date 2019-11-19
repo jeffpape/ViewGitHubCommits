@@ -10,6 +10,7 @@ import Foundation
 
 class GitCommitModelController {
     static var commits : [GitCommitData]? = nil
+    static var error: String? = nil
     
     static func setUpGitHubRetrieve(sourceRepository: String, completion: @escaping([GitCommitData]?) -> Void) {
 
@@ -26,6 +27,7 @@ class GitCommitModelController {
     //            debugPrint(urlResponse as Any)
             guard let data = data else {
                 debugPrint("data is nil")
+                self.error = "unable to retrieve user/repository commits"
                 self.commits = []
                 completion(self.commits)
                 return
@@ -33,6 +35,7 @@ class GitCommitModelController {
     //            debugPrint(String(data: data, encoding: .utf8) as Any)
             guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) else {
                 debugPrint("jsonData is nil")
+                self.error = "unable to process retrieved user/repository commits"
                 self.commits = []
                 completion(self.commits)
                 return
@@ -40,6 +43,7 @@ class GitCommitModelController {
     //            debugPrint(jsonData)
             guard let dictionaryData = jsonData as? [[String:Any]] else {
                 debugPrint("typecase of jsonData to [[String:Any]]")
+                self.error = "unable to process retrieved user/repository commits"
                 self.commits = []
                 completion(self.commits)
                 return
@@ -53,6 +57,7 @@ class GitCommitModelController {
                 debugPrint("\(commit.author)   \(commit.hash)   \(commit.message)")
             }
             self.commits = commits
+            self.error = nil
             
             completion(commits)
         }

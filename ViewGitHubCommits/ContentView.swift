@@ -21,6 +21,7 @@ struct ContentView: View {
 //    let sourceRepository = "tensorflow/tensorflow"
     @State var commits: [GitCommitData]? = nil
     @State var sourceRepository: String = ""
+    @State var error: String? = nil
     var body: some View {
         VStack {
             Text("View GitHub Commits")
@@ -32,16 +33,24 @@ struct ContentView: View {
                     TextField("user/repository", text: self.$sourceRepository,
                          onCommit: { GitCommitModelController.setUpGitHubRetrieve(sourceRepository: self.sourceRepository) {
                              self.commits = $0
+                            self.error = GitCommitModelController.error
                          }})
                         .font(.title)
                         .foregroundColor(.blue)
                     Spacer()
-                    Button("x", action: {
+                    Button(action: {
                         self.sourceRepository = ""
                         self.commits = []
+                        self.error = nil
+                        
+                    }, label: {
+                        Image(uiImage: #imageLiteral(resourceName: "CancelIcon")).renderingMode(.original)
                     })
-                    }.padding([.leading, .trailing], 20).padding([.top, .bottom], 10).background(Color.gray.opacity(0.2)).cornerRadius(10)
+                }.padding([.leading, .trailing], 20).padding([.top, .bottom], 10).background(Color.gray.opacity(0.2)).cornerRadius(10)
                 Spacer(minLength: 20)
+            }
+            if error != nil {
+                Text(error!)
             }
             List {
                 ForEach(self.commits ?? [], id: \.hash)
